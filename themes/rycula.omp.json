@@ -117,7 +117,7 @@
               "fetch_virtual_env": true
             },
             "style": "powerline",
-            "template": " \ue235 {{ .Venv }} ",
+            "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
             "type": "python"
           },
           {
