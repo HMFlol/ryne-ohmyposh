@@ -32,10 +32,4 @@ To use the themes in this repository, you'll need to have ohmyposh installed on 
 
 5. Save the profile file and restart your PowerShell session.
 
-## Contributing
-
-If you'd like to contribute to this repository by adding new themes or improving existing ones, feel free to submit a pull request. Please follow the contribution guidelines outlined in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+6. Have fun!
