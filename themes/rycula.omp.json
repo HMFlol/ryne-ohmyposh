@@ -1,5 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+
   "blocks": [
     {
       "type": "prompt",
@@ -49,7 +50,7 @@
           "type": "git",
           "foreground": "#8e91a9",
           "properties": {
-            "branch_icon": "\ue725 ",
+            "branch_icon": "",
             "cherry_pick_icon": "\ue29b ",
             "commit_icon": "\uf417 ",
             "fetch_status": true,
@@ -61,19 +62,22 @@
             "tag_icon": "\uf412 "
           },
           "style": "plain",
-          "template": "{{ .UpstreamIcon }}{{ .RepoName }} {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
+          "template": "{{ .UpstreamIcon }} {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
         }
       ]
     },
     {
       "type": "rprompt",
-      "alignment": "left",
+      "overflow": "hidden",
       "segments": [
         {
-          "type": "aws",
+          "type": "executiontime",
           "foreground": "#a7ac6b",
+          "properties": {
+            "threshhold": 5000
+          },
           "style": "plain",
-          "template": " \ue7ad {{.Profile}}{{if .Region}}@{{.Region}}{{end}}"
+          "template": "{{ .FormattedMs }}"
         }
       ]
     },
@@ -113,13 +117,21 @@
         {
           "type": "text",
           "foreground": "#bd93f9",
+          "foreground_templates": [
+            "{{if gt .Code 0}}red{{end}}",
+            "{{if eq .Code 0}}#bd93f9{{end}}"
+          ],
           "style": "plain",
-          "template": "\u276f"
+          "template": "\u276f "
         }
       ]
     }
   ],
-  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
-  "final_space": true,
+  "secondary_prompt": {
+    "foreground": "#bd93f9",
+    "background": "transparent",
+    "template": "\u276f\u276f "
+  },
+  "console_title_template": "{{ .Folder }}",
   "version": 2
 }
